@@ -109,7 +109,7 @@ class CoreNav
             ->icon('assets')
             ->can('index', AssetContainer::class)
             ->children(function () {
-                return AssetContainerAPI::all()->sortBy->title()->map(function ($assetContainer) {
+                return AssetContainerAPI::all()->map(function ($assetContainer) {
                     return Nav::item($assetContainer->title())
                         ->url($assetContainer->showUrl())
                         ->can('view', $assetContainer);

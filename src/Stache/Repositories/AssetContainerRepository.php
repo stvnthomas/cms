@@ -20,7 +20,9 @@ class AssetContainerRepository implements RepositoryContract
     {
         $keys = $this->store->paths()->keys();
 
-        return $this->store->getItems($keys);
+        return $this->store->getItems($keys)->sortBy(function($container){
+            return $container->title();
+        });
     }
 
     public function find($id): ?AssetContainer
